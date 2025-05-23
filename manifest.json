@@ -4,15 +4,20 @@
   "version": "0.1.0",
   "description": "Load all Capital One Offers, anlayze miles & rates.",
   "permissions": [
-    "activeTab",
-    "scripting",
-    "downloads"
+    "activeTab"
   ],
   "host_permissions": [
     "https://capitaloneoffers.com/*"
   ],
+  "content_scripts": [
+    {
+      "matches": ["https://capitaloneoffers.com/*"],
+      "js": ["content_script.js"],
+      "run_at": "document_idle"
+    }
+  ],
   "action": {
-    "default_title": "Scrape C1 Offers",
+    "default_title": "Scrape C1 Offers Analyzer",
     "default_icon": {
       "16": "icons/icon16.png",
       "48": "icons/icon48.png",
